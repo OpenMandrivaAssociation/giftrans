@@ -1,7 +1,7 @@
-Summary: 	A program for making transparent GIFs from non-transparent GIFs.
+Summary: 	Convert transparent GIFs into non-transparent GIFs
 Name: 		giftrans
 Version: 	1.12.2
-Release: 	%mkrel 15
+Release: 	%mkrel 16
 License: 	BSD
 Group: 		Graphics
 URL:		ftp://ftp.rz.uni-karlsruhe.de/pub/net/www/tools/
@@ -44,5 +44,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %_bindir/%name
 %_mandir/man1/%{name}.1*
-
 
