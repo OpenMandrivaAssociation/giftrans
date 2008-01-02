@@ -10,6 +10,7 @@ Patch0:		giftrans-1.12.2-operator.patch
 Patch1:		giftrans-1.12.2-cleanup.patch
 Patch2:		giftrans-1.12.2-warnings.patch
 Patch3:		giftrans-1.12.2-rgb.patch
+Buildroot: 	%_tmppath/%name-%{version}-buildroot
 
 
 %description
