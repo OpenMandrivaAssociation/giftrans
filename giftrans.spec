@@ -1,7 +1,7 @@
 Summary: 	Convert transparent GIFs into non-transparent GIFs
 Name: 		giftrans
 Version: 	1.12.2
-Release: 	%mkrel 18
+Release: 	%mkrel 19
 License: 	BSD
 Group: 		Graphics
 URL:		ftp://ftp.rz.uni-karlsruhe.de/pub/net/www/tools/
