@@ -1,0 +1,29 @@
+--- giftrans-1.12.2.orig/giftrans.c
++++ giftrans-1.12.2/giftrans.c
+@@ -383,7 +383,7 @@
+ FILE	*dest;
+ {
+ 	unsigned char	buffer[3*256],lsd[7],gct[3*256],gce[5];
+-	unsigned int	cnt,cols,size,gct_size,gct_delay,gce_present;
++	unsigned int	cnt,cols,size,gct_size=0,gct_delay,gce_present;
+ 	struct entry	*rgbptr;
+ 
+ 
+@@ -811,7 +813,7 @@
+ 
+ 	image=argv[0];
+ 	root=NULL;
+-	if (*rgb)
++	if (*rgb) {
+ 		if ((src=fopen(rgb,"r"))!=NULL) {
+ 			next= &root;
+ 			while (fgets(line,sizeof(line),src)) {
+@@ -847,7 +851,7 @@
+ 			*rgb='\0';
+ #endif
+ 		}
+-
++	}
+ 	bc.index=NONE;
+ 	tc.index=NONE;
+ 	tn.index=NONE;

@@ -1,0 +1,22 @@
+--- giftrans-1.12.2/giftrans.c.ORIG	Tue Oct 21 22:33:57 1997
++++ giftrans-1.12.2/giftrans.c	Mon Nov  5 17:11:31 2001
+@@ -414,7 +414,7 @@
+ 		(void)fprintf(stderr,"\tLogical Screen Width: %d pixels\n",readword(lsd));
+ 		(void)fprintf(stderr,"\tLogical Screen Height: %d pixels\n",readword(lsd+2));
+ 		(void)fprintf(stderr,"\tGlobal Color Table Flag: %s\n",readflag(lsd[4]&0x80));
+-		(void)fprintf(stderr,"\tColor Resolution: %d bits\n",(lsd[4]&0x70>>4)+1);
++		(void)fprintf(stderr,"\tColor Resolution: %d bits\n",((lsd[4]&0x70)>>4)+1);
+ 		if (lsd[4]&0x80) {
+ 			(void)fprintf(stderr,"\tSort Flag: %s\n",readflag(lsd[4]&0x8));
+ 			(void)fprintf(stderr,"\tSize of Global Color Table: %d colors\n",2<<(lsd[4]&0x7));
+@@ -618,8 +618,8 @@
+ 				size=buffer[2];
+ 				(void)fread((void *)gce,size,1,src);
+ 				if (verbose) {
+-					(void)fprintf(stderr,"\tDisposal Method: %d ",gce[0]&0x1c>>2);
+-					switch (gce[0]&0x1c>>2) {
++					(void)fprintf(stderr,"\tDisposal Method: %d ",(gce[0]&0x1c)>>2);
++					switch ((gce[0]&0x1c)>>2) {
+ 					case 0:
+ 						(void)fprintf(stderr,"(no disposal specified)\n");
+ 						break;

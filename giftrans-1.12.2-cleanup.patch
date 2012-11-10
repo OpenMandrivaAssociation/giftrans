@@ -1,0 +1,20 @@
+--- giftrans-1.12.2.orig/giftrans.c
++++ giftrans-1.12.2/giftrans.c
+@@ -711,7 +711,7 @@
+ 			(void)fprintf(stderr,"0x%08lx: Unknown extension 0x%02x!\n",ftell(src)-1,buffer[0]);
+ 			if (debug)
+ 				dump(pos,buffer,1);
+-			return(1);
++			break;
+ 		}
+ 	} while (buffer[0]!=0x3b&&!feof(src));
+ 	return(buffer[0]==0x3b?SUCCESS:FAILURE);
+@@ -811,6 +813,8 @@
+ 		if ((src=fopen(rgb,"r"))!=NULL) {
+ 			next= &root;
+ 			while (fgets(line,sizeof(line),src)) {
++				if (line[0] == '!') 
++					continue;
+ 				*next=(struct entry *)malloc(sizeof(struct entry));
+ 				for (ptr=line;strchr(" \t",*ptr);ptr++);
+ 				for (nptr=ptr;!strchr(" \t",*ptr);ptr++);
