@@ -23,7 +23,7 @@ graphics program to make transparent .gifs out of existing .gifs.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 gcc -Dvoidd=void -Wall $RPM_OPT_FLAGS -DRGBTXT=\"%{_datadir}/X11/rgb.txt\" -s -o giftrans giftrans.c
